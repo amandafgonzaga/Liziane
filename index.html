@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lizi</title>
+    <link rel="icon" type="image/png" href="image/favicon-32x32.png">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: #fff8f0;
+            color: #3c2f2f;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.8em;
+            color: #a0522d;
+        }
+        .poem {
+            white-space: pre-wrap;
+            font-size: 1.3em;
+            margin-top: 30px;
+        }
+        .footer {
+            margin-top: 50px;
+            font-style: italic;
+            text-align: center;
+            font-size: 1.1em;
+            color: #5a4b4b;
+        }
+        .main-question {
+            margin-top: 30px;
+            font-size: 1.3em;
+            text-align: center;
+            color: #a0522d;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 1em;
+            background-color: #f4c2c2;
+            color: #3c2f2f;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #e6a9a9;
+        }
+        .heart {
+            position: absolute;
+            color: #ff5e78;
+            animation: float 6s infinite ease-in-out;
+            font-size: 1.5em;
+            z-index: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .audio-button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .audio-button {
+            padding: 12px 25px;
+            font-size: 1em;
+            background-color: #e6a9a9;
+            color: #3c2f2f;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="audio-button-container">
+            <button class="audio-button" onclick="iniciarTudo()">Clique aqui</button>
+        </div>
+        <h1>Lizi,</h1>
+        <div class="poem">
+Te amo no pôr do sol no mirante,
+onde o céu parece prometer o que eu quero construir contigo.
+Te amo no Nico pulando feito louco,
+nos meus cachorros que você ainda vai conhecer —
+a Alaska, toda dona de si,
+e o Barney, que provavelmente vai te amar mais que eu.
+
+Te amo no Lego do Stitch,
+que a gente montou como se fosse fácil montar a vida a dois
+(só que sem manual e com algumas pecinhas que eu ainda perco por aí).
+
+Te amo nos banhos no chuveiro,
+entre sabão, beijo e conversa boba,
+no caldo de mandioca que você faz melhor que muita chef,
+e nas frases da Alexa que parecem saber da gente mais do que deviam: 
+“ela voltou”, e meu coração sabe 
+— é isso mesmo,
+chegou a hora.
+
+Eu ainda vou errar muito,
+provavelmente vou te irritar querendo explicações demais,
+Mas eu volto. Eu aprendo. Eu tento.
+Porque te ter por perto é meu jeito preferido de existir.
+        </div>
+        <div class="footer">
+            Desculpa se pareceu que eu só queria ouvir palavras... <br>
+            Na verdade, eu quero a gente.
+        </div>
+        <div class="main-question">
+            Você ainda quer montar esse lego maluco comigo?
+        </div>
+        <div class="buttons">
+            <a class="button" href="https://wa.me/5531993185541?text=Sim,%20eu%20ainda%20quero%20montar%20esse%20lego%20maluco%20com%20você%20❤️" target="_blank">Sim</a>
+            <a class="button" href="https://wa.me/5531993185541?text=Não%20agora...%20mas%20obrigada%20por%20tudo%20🧩" target="_blank">Não</a>
+        </div>
+    </div>
+
+    <!-- Música de fundo -->
+    <audio id="musica" loop>
+        <source src="just-the-two-of-us.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- JS: Aviso + iniciar música + corações -->
+    <script>
+        window.addEventListener("load", function () {
+            alert("⚠️ Aviso: boiolice extrema detectada! Prepare seu coração. 💖");
+        });
+
+        function iniciarTudo() {
+            const musica = document.getElementById("musica");
+            if (musica) {
+                musica.play().catch(() => {
+                    console.log("Toque bloqueado, clique novamente se necessário.");
+                });
+            }
+
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                document.body.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
